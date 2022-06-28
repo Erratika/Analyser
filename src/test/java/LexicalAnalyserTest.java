@@ -18,22 +18,26 @@ class LexicalAnalyserTest {
         assertEquals(0,la.letterCount(testString));
 
 
+        testString = "This is a test that # also includes () some special characters!";
+        assertEquals(48,la.letterCount(testString));
+
+
 
     }
     @Test
-    void testWordCount(){
+    void testWordCount() {
         String testString = "This is a test.";
-        assertEquals(4,la.wordCount(testString));
+        assertEquals(4, la.wordCount(testString));
         assertNotEquals(2, la.wordCount(testString));
 
         testString = "";
         assertEquals(0, la.letterCount(testString));
 
-    }
+        //TODO Fails with special Characters.
+        testString = "This is a test that # also includes () some special characters!";
+        assertEquals(10, la.wordCount(testString));
 
-    @Test
-    void testWordCountSpecial(){
-        assertEquals(10,la.wordCount("This is a test that # also includes () some special characters!"));
+
     }
 
     @Test
@@ -61,10 +65,25 @@ class LexicalAnalyserTest {
         falseTestMap.put('r',1);
         assertNotEquals(falseTestMap, la.letterFrequency(testString));
 
+        testString = "Dont Include Special!";
+        testMap = new HashMap<>();
+        testMap.put('d',2);
+        testMap.put('o',1);
+        testMap.put('n',2);
+        testMap.put('t',1);
+        testMap.put('i',2);
+        testMap.put('c',2);
+        testMap.put('l',2);
+        testMap.put('u',1);
+        testMap.put('e',2);
+        testMap.put('s',1);
+        testMap.put('p',1);
+        testMap.put('a',1);
+        assertEquals(testMap, la.letterFrequency(testString));
 
-
-
-
+        testString = "";
+        testMap = new HashMap<>();
+        assertEquals(testMap, la.letterFrequency(testString));
     }
 
 }
