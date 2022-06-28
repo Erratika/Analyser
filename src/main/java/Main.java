@@ -6,6 +6,8 @@ public class Main {
         String words = scan.nextLine();
 
         System.out.println("Your word or sentence has " + s.letterCount(words) + " Characters" );
+        System.out.println("Your word or sentence has " + s.wordCount(words) + " word(s)");
+        System.out.println("Character Frequencies: " + s.letterFrequency(words));
 
     }
 }
