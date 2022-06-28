@@ -14,7 +14,7 @@ public class LexicalAnalyser {
     }
 
     public int wordCount(String s){
-        return s.trim().split("\\s").length;
+        return s.trim().split("\\s+").length;
     }
     public Map<Character,Integer> letterFrequency(String s){
         Map<Character,Integer> letterMap = new HashMap<>();
@@ -30,8 +30,5 @@ public class LexicalAnalyser {
             }
         }
         return letterMap;
-
-
-
     }
 }

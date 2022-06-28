@@ -10,12 +10,25 @@ class LexicalAnalyserTest {
 
     @Test
     void testLetterCount(){
-        assertEquals(11,la.letterCount("This is a test."));
+        String testString = "This is a test.";
+        assertEquals(11,la.letterCount(testString));
+        assertNotEquals(13, la.letterCount(testString));
+
+        testString = "";
+        assertEquals(0,la.letterCount(testString));
+
+
 
     }
     @Test
     void testWordCount(){
-        assertEquals(4,la.wordCount("This is a test."));
+        String testString = "This is a test.";
+        assertEquals(4,la.wordCount(testString));
+        assertNotEquals(2, la.wordCount(testString));
+
+        testString = "";
+        assertEquals(0, la.letterCount(testString));
+
     }
 
     @Test
@@ -38,6 +51,20 @@ class LexicalAnalyserTest {
         testMap.put('n',1);
         testMap.put('g',1);
         assertEquals(testMap, la.letterFrequency(testString));
+
+        Map<Character,Integer> falseTestMap = new HashMap<>();
+        falseTestMap.put('g',4);
+        falseTestMap.put('h',1);
+        falseTestMap.put('e',3);
+        falseTestMap.put('k',4);
+        falseTestMap.put('o',1);
+        falseTestMap.put('r',1);
+        assertNotEquals(falseTestMap, la.letterFrequency(testString));
+
+
+
+
+
     }
 
 }
