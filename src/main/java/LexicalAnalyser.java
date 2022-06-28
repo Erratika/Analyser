@@ -19,12 +19,14 @@ public class LexicalAnalyser {
     public Map<Character,Integer> letterFrequency(String s){
         Map<Character,Integer> letterMap = new HashMap<>();
 
-        for (Character c: s.toCharArray()){
-            if (letterMap.containsKey(c)){
-                letterMap.put(c,letterMap.get(c)+1);
-            }
-            else {
-                letterMap.put(c,1);
+        for (Character c: s.toLowerCase().toCharArray()){
+            if (Character.isLetter(c)){
+                if (letterMap.containsKey(c)){
+                    letterMap.put(c,letterMap.get(c)+1);
+                }
+                else {
+                    letterMap.put(c,1);
+                }
             }
         }
         return letterMap;
